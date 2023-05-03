@@ -15,6 +15,45 @@ Vous pouvez informer la communauté lorsque vous avez perdu un objet et aussi in
 4. Déclaration de pertes ou de retrouvailles
 5. Contacter un membre de la communauté
 
+## Configuration de l'environnement de travail
+
+Pour configurer votre environnement de travail, vous devez suivre les étapes suivantes:
+
+### Clonner le repertoire de travail
+Executer dans le terminal dans votre dossier de travail la commande suivante:
+
+```bash	
+git clone https://github.com/Mr-KAM/FermeConnecte.git
+cd FermeConnecte
+```
+
+### Configurer l'environnment python
+
+1- Vous devez creer un environnment virtuel. Installez **pew** via la commande:
+
+```bash	
+pip install pew
+```
+
+2- Creez un environnement virtuel 
+
+```bash	
+pew new fermeconnecte
+```
+
+3- Installez les dependences python
+
+```bash	
+pip install -r requirements.txt
+```
+
+### Lancez l'application flask
+
+Pour executer l'application vous devez faire en ligne de commande dans le répertoire de travail:
+
+```bash	
+python app.py
+```
 # Spécifications techniques
 
 ## Technologies
