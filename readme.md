@@ -290,28 +290,11 @@ C:.
 ```
 
 ## Réalisés:
-- Splash screen
-- carousel
-- signup
-- validation par e-mail
-- login
-	+ login
-	+ logout
+Rien encore réalisé
 
 ## A faire
 
-- validation par sms 
-- validation par whatsapp
-- declaration
-- restauration de mot de passe
-- Contacter un autre utilisateur de la communauté
+A définir
 
 # Demos
 
-![Gif 1](demo/demo1.gif) 
-
-![Gif 2](demo/demo2.gif) 
-
-![Gif 3](demo/demo3.gif) 
-
-![Gif 4](demo/demo4.gif)
