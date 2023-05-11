@@ -1,19 +1,20 @@
 # Presentation projet
 ## Nom du projet
-	*Trouve-le*
+	*FermeConnecte*
 ## Logo
-![Logo de trouvele](static/img/logo.png)
+![Logo de FermeConnecte](static/img/logo.png)
 ## Description
 
-Trouve-le est une application qui permet de retrouver des objets perdus en les déclarents.
-Vous pouvez informer la communauté lorsque vous avez perdu un objet et aussi informer si vous en avez rétrouvé.
+FermeConnecte est une application qui permet de mettre à disposition les produits de la grande ferme de l'ESA à la population de L'INPHB.
+Elle va fonctionner comme une apllication de E-commerce.
 
 ## Fonctionnalités
-1. Creation d'un compte utilisateur (Validation par e-mail)
-2. Connexion à son profile
-3. Recherche dans la liste des déclarations (Pertes, retrouvailles )
-4. Déclaration de pertes ou de retrouvailles
-5. Contacter un membre de la communauté
+
+1. Connexion à son profile
+2. Recherche par categorie 
+3. Ajout ou retrait d'un produit au panier 
+4. Passer une commande 
+5. Contacter les fournisseurs
 
 # Spécifications techniques
 
@@ -32,7 +33,7 @@ BackEnd:
 	+ Database : Deta Base
 	+ Storage : Deta Drive
 	
-Le dévéloppement actuelle de trouve-le se fait avec la technologie du microframework python **flask**.
+Le dévéloppement actuelle de FermeConnecte se fait avec la technologie du microframework python **flask**.
 La base de données et la gestion de fichiers est gérer actuellemnt avec Deta
 
 
@@ -88,28 +89,10 @@ La base de données et la gestion de fichiers est gérer actuellemnt avec Deta
 ```
 
 ## Réalisés:
-- Splash screen
-- carousel
-- signup
-- validation par e-mail
-- login
-	+ login
-	+ logout
-
+R-A-S
 ## A faire
 
-- validation par sms 
-- validation par whatsapp
-- declaration
-- restauration de mot de passe
-- Contacter un autre utilisateur de la communauté
+L'application est à l'étape 0.
 
 # Demos
 
-![Gif 1](demo/demo1.gif) 
-
-![Gif 2](demo/demo2.gif) 
-
-![Gif 3](demo/demo3.gif) 
-
-![Gif 4](demo/demo4.gif)
