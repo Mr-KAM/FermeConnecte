@@ -78,52 +78,215 @@ La base de données et la gestion de fichiers est gérer actuellemnt avec Deta.
 ## Arboressence
 
 ```bash
-.
+C:.
 │   .gitignore
-│   main.py
+│   app.py
+│   config.py
+│   Makefile
+│   models.py
 │   readme.md
-│   requirements.txt         : [dependences] Ensembles des packages à installer
-│   trouvele.py              : Programme principale (Routings...)
-│   _database.py             : [module] Fonctions et objets de base de données
-│   _declaration.py          : [module] Base de données déclarations(temp)
-│   _forms.py                : [module] Formulaires 
-│   _validation.py           : [module] Validation de données
+│   requirements.txt
+│   setup.py
+│
+├───Impact
+│   │   blog-details.html
+│   │   blog.html
+│   │   index.html
+│   │   portfolio-details.html
+│   │   Readme.txt
+│   │   sample-inner-page.html
+│   │
+│   ├───assets
+│   │   ├───css
+│   │   │       main.css
+│   │   │
+│   │   ├───img
+│   │   │   │   about-2.jpg
+│   │   │   │   about.jpg
+│   │   │   │   apple-touch-icon.png
+│   │   │   │   breadcrumbs-bg.jpg
+│   │   │   │   cta-bg.jpg
+│   │   │   │   favicon.png
+│   │   │   │   hero-bg-abstract.jpg
+│   │   │   │   hero-img.svg
+│   │   │   │   stats-img.svg
+│   │   │   │
+│   │   │   ├───blog
+│   │   │   │       blog-1.jpg
+│   │   │   │       blog-2.jpg
+│   │   │   │       blog-3.jpg
+│   │   │   │       blog-4.jpg
+│   │   │   │       blog-5.jpg
+│   │   │   │       blog-6.jpg
+│   │   │   │       blog-author-2.jpg
+│   │   │   │       blog-author-3.jpg
+│   │   │   │       blog-author-4.jpg
+│   │   │   │       blog-author-5.jpg
+│   │   │   │       blog-author-6.jpg
+│   │   │   │       blog-author.jpg
+│   │   │   │       blog-inside-post.jpg
+│   │   │   │       blog-recent-1.jpg
+│   │   │   │       blog-recent-2.jpg
+│   │   │   │       blog-recent-3.jpg
+│   │   │   │       blog-recent-4.jpg
+│   │   │   │       blog-recent-5.jpg
+│   │   │   │       comments-1.jpg
+│   │   │   │       comments-2.jpg
+│   │   │   │       comments-3.jpg
+│   │   │   │       comments-4.jpg
+│   │   │   │       comments-5.jpg
+│   │   │   │       comments-6.jpg
+│   │   │   │
+│   │   │   ├───clients
+│   │   │   │       client-1.png
+│   │   │   │       client-2.png
+│   │   │   │       client-3.png
+│   │   │   │       client-4.png
+│   │   │   │       client-5.png
+│   │   │   │       client-6.png
+│   │   │   │       client-7.png
+│   │   │   │       client-8.png
+│   │   │   │
+│   │   │   ├───portfolio
+│   │   │   │       app-1.jpg
+│   │   │   │       app-2.jpg
+│   │   │   │       app-3.jpg
+│   │   │   │       books-1.jpg
+│   │   │   │       books-2.jpg
+│   │   │   │       books-3.jpg
+│   │   │   │       branding-1.jpg
+│   │   │   │       branding-2.jpg
+│   │   │   │       branding-3.jpg
+│   │   │   │       product-1.jpg
+│   │   │   │       product-2.jpg
+│   │   │   │       product-3.jpg
+│   │   │   │
+│   │   │   ├───team
+│   │   │   │       team-1.jpg
+│   │   │   │       team-2.jpg
+│   │   │   │       team-3.jpg
+│   │   │   │       team-4.jpg
+│   │   │   │
+│   │   │   └───testimonials
+│   │   │           testimonials-1.jpg
+│   │   │           testimonials-2.jpg
+│   │   │           testimonials-3.jpg
+│   │   │           testimonials-4.jpg
+│   │   │           testimonials-5.jpg
+│   │   │
+│   │   ├───js
+│   │   │       main.js
+│   │   │
+│   │   ├───scss
+│   │   │       Readme.txt
+│   │   │
+│   │   └───vendor
+│   │       ├───aos
+│   │       │       aos.css
+│   │       │       aos.js
+│   │       │
+│   │       ├───bootstrap
+│   │       │   ├───css
+│   │       │   │       bootstrap-grid.css
+│   │       │   │       bootstrap-grid.css.map
+│   │       │   │       bootstrap-grid.min.css
+│   │       │   │       bootstrap-grid.min.css.map
+│   │       │   │       bootstrap-grid.rtl.css
+│   │       │   │       bootstrap-grid.rtl.css.map
+│   │       │   │       bootstrap-grid.rtl.min.css
+│   │       │   │       bootstrap-grid.rtl.min.css.map
+│   │       │   │       bootstrap-reboot.css
+│   │       │   │       bootstrap-reboot.css.map
+│   │       │   │       bootstrap-reboot.min.css
+│   │       │   │       bootstrap-reboot.min.css.map
+│   │       │   │       bootstrap-reboot.rtl.css
+│   │       │   │       bootstrap-reboot.rtl.css.map
+│   │       │   │       bootstrap-reboot.rtl.min.css
+│   │       │   │       bootstrap-reboot.rtl.min.css.map
+│   │       │   │       bootstrap-utilities.css
+│   │       │   │       bootstrap-utilities.css.map
+│   │       │   │       bootstrap-utilities.min.css
+│   │       │   │       bootstrap-utilities.min.css.map
+│   │       │   │       bootstrap-utilities.rtl.css
+│   │       │   │       bootstrap-utilities.rtl.css.map
+│   │       │   │       bootstrap-utilities.rtl.min.css
+│   │       │   │       bootstrap-utilities.rtl.min.css.map
+│   │       │   │       bootstrap.css
+│   │       │   │       bootstrap.css.map
+│   │       │   │       bootstrap.min.css
+│   │       │   │       bootstrap.min.css.map
+│   │       │   │       bootstrap.rtl.css
+│   │       │   │       bootstrap.rtl.css.map
+│   │       │   │       bootstrap.rtl.min.css
+│   │       │   │       bootstrap.rtl.min.css.map
+│   │       │   │
+│   │       │   └───js
+│   │       │           bootstrap.bundle.js
+│   │       │           bootstrap.bundle.js.map
+│   │       │           bootstrap.bundle.min.js
+│   │       │           bootstrap.bundle.min.js.map
+│   │       │           bootstrap.esm.js
+│   │       │           bootstrap.esm.js.map
+│   │       │           bootstrap.esm.min.js
+│   │       │           bootstrap.esm.min.js.map
+│   │       │           bootstrap.js
+│   │       │           bootstrap.js.map
+│   │       │           bootstrap.min.js
+│   │       │           bootstrap.min.js.map
+│   │       │
+│   │       ├───bootstrap-icons
+│   │       │   │   bootstrap-icons.css
+│   │       │   │   bootstrap-icons.json
+│   │       │   │   bootstrap-icons.scss
+│   │       │   │
+│   │       │   └───fonts
+│   │       │           bootstrap-icons.woff
+│   │       │           bootstrap-icons.woff2
+│   │       │
+│   │       ├───glightbox
+│   │       │   ├───css
+│   │       │   │       glightbox.css
+│   │       │   │       glightbox.min.css
+│   │       │   │       plyr.css
+│   │       │   │       plyr.min.css
+│   │       │   │
+│   │       │   └───js
+│   │       │           glightbox.js
+│   │       │           glightbox.min.js
+│   │       │
+│   │       ├───isotope-layout
+│   │       │       isotope.pkgd.js
+│   │       │       isotope.pkgd.min.js
+│   │       │
+│   │       ├───php-email-form
+│   │       │       validate.js
+│   │       │
+│   │       ├───purecounter
+│   │       │       purecounter_vanilla.js
+│   │       │       purecounter_vanilla.js.map
+│   │       │
+│   │       └───swiper
+│   │               swiper-bundle.min.css
+│   │               swiper-bundle.min.js
+│   │               swiper-bundle.min.js.map
+│   │
+│   └───forms
+│           contact.php
+│           Readme.txt
 │
 ├───static
 │   ├───css
-│   │       animate.min.css      : [Framework] Animation
-│   │       daisyui.css          : [Framework] Framework UI
-│   │       session_error.css    : [style] 
-│   │       signup.css           : [style]
-│   │       tailwind.min.css     : [Framework]
-│   │       trouvele_profil.css  : [style]
-│   │       validation.css       : [style]
+│   │       style.css
 │   │
-│   ├───img                      : [Image locale]
-│   │       c1.png
-│   │       c2.png
-│   │       c3.png
-│   │       default_pp.webp
-│   │       logo.png              : logo
-│   │       profile-default.png   : pp par defaut
+│   ├───js
+│   │       main.js
 │   │
-│   └───js
-│           jquery.min.js
-│           tailwindcss.js
-│           tailwindcss.min.js
-│           validation.js
-│           w3.js
+│   └───scss
+│           style.scss
 │
-├───templates
-        accueil.html
-        bottom_nav.html
-        carousel.html
-        header.html
+└───templates
+        base.html
         index.html
-        login.html
-        session_error.html
-        signup.html
-        validation.html
 ```
 
 ## Réalisés:
