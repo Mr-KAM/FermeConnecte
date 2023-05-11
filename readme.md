@@ -71,8 +71,8 @@ BackEnd:
 	+ Database : Deta Base
 	+ Storage : Deta Drive
 	
-Le dévéloppement actuelle de trouve-le se fait avec la technologie du microframework python **flask**.
-La base de données et la gestion de fichiers est gérer actuellemnt avec Deta
+Le dévéloppement actuelle de l'application se fait avec la technologie du microframework python **flask**.
+La base de données et la gestion de fichiers est gérer actuellemnt avec Deta.
 
 
 ## Arboressence
