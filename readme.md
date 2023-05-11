@@ -1,19 +1,19 @@
 # Presentation projet
-## Nom du projet
-	*Trouve-le*
+## Nom du projet :
+*ESA FermeConnecte*
 ## Logo
 ![Logo de trouvele](static/img/logo.png)
 ## Description
 
-Trouve-le est une application qui permet de retrouver des objets perdus en les déclarents.
-Vous pouvez informer la communauté lorsque vous avez perdu un objet et aussi informer si vous en avez rétrouvé.
+Application web de commande en ligne des produits de la grande ferme de l'ESA/INP-HB.
 
 ## Fonctionnalités
-1. Creation d'un compte utilisateur (Validation par e-mail)
-2. Connexion à son profile
-3. Recherche dans la liste des déclarations (Pertes, retrouvailles )
-4. Déclaration de pertes ou de retrouvailles
-5. Contacter un membre de la communauté
+1. Creer un compte utilisateur
+2. Connexion à son compte
+3. Rechercher une produit dans le catalogue des produits disponibles
+4. Ajouter un produit et la quantité souhaité à son panier
+5. Planifier sa commande et le mode de paiement
+6. Contacter les gestionnaires de la ferme
 
 ## Configuration de l'environnement de travail
 
