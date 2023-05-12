@@ -12,10 +12,13 @@
     {% endassets %}
     <script src="{{url_for('static', filename='js/main.js')}}"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet" type="text/css" />
     
 </head>
 
-<body>
+<body data-theme="synthwave">
     {% block content%}
     {% endblock %}
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

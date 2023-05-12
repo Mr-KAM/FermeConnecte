@@ -4,8 +4,8 @@ import flask_login
 import flask_admin
 import flask_wtf
 from flask_assets import Environment, Bundle
-
 from models import db
+from deta import Deta
 
 
 from config import Config
@@ -23,8 +23,11 @@ assets.register('scss_all', scss)
 db.app = app
 db.init_app(app)
 
+@app.route('/')
+def index():
+    return render_template('splash.html', data="kambou Anicet")
 
-@app.route("/", methods=["GET", 'POST'])
+@app.route("/home", methods=["GET", 'POST'])
 def home():
     """
     Home page route

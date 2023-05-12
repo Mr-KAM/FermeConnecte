@@ -1,10 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content%}
-<h1>Welcome to your Flask App!</h1>
+<h1>Bienvenue </h1>
 <h2>Your app is up and running!</h2>
+
 <form action="/" method="post">
-    <input type="text" name="message" placeholder="Your message">
+    <input type="text" name="message" placeholder="Message ici" class="input input-bordered">
     <input type="submit">
 </form>
+<br>
+<div class="dropdown dropdown-top">
+    <label tabindex="0" class="btn m-1">Click</label>
+    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+      <li><a>Item 1</a></li>
+      <li><a>Item 2</a></li>
+    </ul>
+  </div>
 {% endblock%}
