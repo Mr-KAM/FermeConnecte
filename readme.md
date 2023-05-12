@@ -1,10 +1,10 @@
-# Presentation projet
+# Presentation projet 
 ## Nom du projet :
 *ESA FermeConnecte*
 ## Logo
 ![Logo de trouvele](static/img/logo.png)
 ## Description
-
+MeaAngel
 Application web de commande en ligne des produits de la grande ferme de l'ESA/INP-HB.
 
 ## Fonctionnalités
