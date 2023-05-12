@@ -6,7 +6,11 @@ with io.open("README.md", "rt", encoding="utf8") as f:
     readme = f.read()
 
 setup(
+<<<<<<< HEAD
     name="ferme connecte",
+=======
+    name="fermeconnecte",
+>>>>>>> 34c6ea91287c606392330f1a79bd8bde05d08852
     version="1.0.0",
     long_description=readme,
     packages=find_packages(),
