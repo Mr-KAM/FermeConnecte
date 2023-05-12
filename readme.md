@@ -15,6 +15,54 @@ Application web de commande en ligne des produits de la grande ferme de l'ESA/IN
 5. Planifier sa commande et le mode de paiement
 6. Contacter les gestionnaires de la ferme
 
+# Fonctionnalités 2
+
+
+1-Login page
+2-Signup page
+3-Validation par email
+4-Accueil
+	1-Liste des produits disponible (Avec description et quantités)
+	2-Option de commande
+	3-Ajout au Panier
+5-Settings 
+6-Etat du panier 
+7-Validation de commandes
+
+# Taches 
+
+## 1- Mea+Binaté :  deta
+
+Connexion a deta
+	- creation de base de données *FermeConnecte* pour:
+	- creation de fichier **database.py**
+Creation de root dans app.py
+	- splash
+	- login
+	- signup
+	- panier 
+	- home
+	- template+root (settings)
+
+## 2- Kimberley + Jaures
+design des pages de templates
+	- index
+	- login
+	- signup 
+	- settings
+	- home
+	- splash 
+	- panier
+
+## 3-Fabrice + Franck
+
+	- creation du contenu des roots suivants:
+		- login 
+		- signup 
+		- home 
+
+
+
 ## Configuration de l'environnement de travail
 
 Pour configurer votre environnement de travail, vous devez suivre les étapes suivantes:
