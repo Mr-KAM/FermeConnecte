@@ -1,19 +1,20 @@
 # Presentation projet
 ## Nom du projet
-	*Trouve-le*
+	*FermeConnecte*
 ## Logo
-![Logo de trouvele](static/img/logo.png)
+![Logo de FermeConnecte]
 ## Description
 
-Trouve-le est une application qui permet de retrouver des objets perdus en les déclarents.
-Vous pouvez informer la communauté lorsque vous avez perdu un objet et aussi informer si vous en avez rétrouvé.
+FermeConnecte est une plateforme d'achat des produits issus de la production de la ferme de l'Ecole Supérieure d'Agronomie(ESA).
+Il y a la vente de produits primaires(viandes ou animal vivant) et de produits sécondaires(oeufs,lait,ect).
+
 
 ## Fonctionnalités
 1. Creation d'un compte utilisateur (Validation par e-mail)
 2. Connexion à son profile
-3. Recherche dans la liste des déclarations (Pertes, retrouvailles )
-4. Déclaration de pertes ou de retrouvailles
-5. Contacter un membre de la communauté
+3. Mettre une page de presentation des produits ainsi que leur prix
+4. Subdiviser les produits en fonction de leur catégorie.
+
 
 ## Configuration de l'environnement de travail
 
