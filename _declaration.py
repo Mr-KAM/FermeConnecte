@@ -29,7 +29,9 @@ def declarations():
 
         type=random.choice(types)
         photo = f'img/{type}.jpg'
+        key=auteur
         data[numero] = {
+            "key":key,
             "auteur": auteur,
             "date": date,
             "type": type,

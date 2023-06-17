@@ -53,9 +53,9 @@ def add_user(db, user):
         return False
 
 
-def save_file(drive_name, file_name, file_data):
+def save_file(drive_name, file_name, file_path):
     try:
-        drive_name.put(file_name, file_data)
+        drive_name.put(file_name, file_path)
         print("-------Image user sauvegardé")
         return True
     except:
@@ -125,6 +125,16 @@ def add_data(db,data):
 def data_exist(db, key):
     data = db.get(key)
     return True if data else False
+
+def add_file(drive_name, file_name, path):
+    try:
+        drive_name.put(file_name, path=path)
+        print("-------Image user sauvegardé")
+        return True
+    except:
+        drive_name.put(file_name, path="static/img/profile-default.png")
+        print("++++ erreur sauvegarde image")
+        return False
 # 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
 # [3] [Creation des objets pour la base de données ]
 # 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
@@ -148,8 +158,6 @@ class utilisateur:
         return {
             "key":self.key,
         }
-
-
 
 
 class db_produit:

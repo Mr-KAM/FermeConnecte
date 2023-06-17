@@ -1,4 +1,15 @@
-data=[{
+from deta import *  # pip install deta
+from dotenv import load_dotenv
+from _database import *
+load_dotenv()
+
+cle_ferme_connecte = os.environ["cle_ferme_connecte"]
+deta = Deta(cle_ferme_connecte)
+
+prod= deta.Base("produits")
+prod_img=deta.Drive("produit")
+datas=[
+    {
     "key": "lapin_entier",
     "categorie": "Viande,Animaux",
     "description": "Le lapin domestique est un lapin européen, qui a été domestiqué pour l'alimentation humaine en Europe occidentale, au Moyen Âge, une époque relativement récente comparée à d'autres animaux domestiques. Les lapins de clapier sont de petits mammifères herbivores qui diffèrent très peu de l'espèce souche, classée dans l'ordre des Lagomorphes, la famille des léporidés et le genre Oryctolagus. À l'origine, le lapin européen est élevé en semi-liberté dans de vastes espaces clos comme « lapin de garenne », afin d'assurer notamment la production de laurices durant la période de carême. Depuis lors, de très nombreuses races de lapins ont été créées dans le cadre de l'élevage sélectif effectué par les humains, en fonction de l'usage auquel la cuniculture les destine. Au début du xxe siècle on recense plus de 100 races de lapins domestiques.",
@@ -89,4 +100,10 @@ data=[{
 	"unite": "Litre"
 }]
 
+def add_datas(prod,datas):
+    for data in datas:
+        add_data(prod,data) 
+    return True  
+if __name__ == "__main__":
+    add_datas(prod,data)
 
