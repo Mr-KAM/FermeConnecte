@@ -40,3 +40,4 @@ def declarations():
         }
 
     return data
+
