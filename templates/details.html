@@ -70,18 +70,19 @@
 <body data-theme="synthwave">
     <div class="product-details">
         <div class="product-card">
-            <img class="product-image" src="{{url_for('static',filename= declarations[val].photo }}" alt="Product Image">
-            <h2 class="product-title">{{ declarations[val].type }}</h2>
-            <p class="product-description">{{ declarations[val].description }}</p>
-            <p class="product-quantity">Quantité: <span id="product-quantity">{{ declarations[val].quantite }}</span></p>
+            <img class="product-image" src="{{url_for('static',filename= photo )}}" alt="Product Image">
+            <h2 class="product-title">{{ key }}</h2>
+            <p class="product-description">{{ key }}</p>
+            
             <div class="quantity-actions">
                 <button class="quantity-button" onclick="decrementQuantity()">-</button>
+                <p class="product-quantity">Quantité: <span id="product-quantity">0</span></p>
                 <button class="quantity-button" onclick="incrementQuantity()">+</button>
             </div>
         </div>
     </div>
                   <!-- Importation du script -->
-  <script src="../static/js/incrementation.js"></script>
+  <script src="{{url_for('static', filename='js/incrementation.js')}}"></script>
 </body>
 
 </html>

@@ -307,10 +307,28 @@ def panier():
     return render_template('panier.html')
 
 
-@app.route("/details/")
+
+
+@app.route("/details/<key>/", methods=["POST", "GET"])
 @login_required
-def details():
-    return render_template('details.html')
+def details(key):
+    product_details = get_product_details(key)  
+
+    if product_details:
+        return render_template('details.html', key=key , photo=f'img/{key}.jpg', produit=product_details)
+    else:
+        return "Product not found"
+
+def get_product_details(key):
+    produits = {
+        "Key": "clé utilisateur",
+        "produits": [
+            {"produit": "Produit 1", "valeur": 19.99},
+            {"produit": "Produit 2", "valeur": 29.99}
+        ]
+    }
+    return produits
+
 
 
 @app.route("/settings")
