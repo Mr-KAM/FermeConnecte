@@ -1,6 +1,159 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content%}
-<h1>panier</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    {% include 'header.html' %}
+    <style>
+        :root {
+            --animate-duration: 500ms;
+            --animate-delay: 0.5s;
+            scroll-behavior: smooth;
+        }   
+        body{
+            scroll-behavior: smooth;
+            height: 100vh;
 
-{% endblock%}
+        }
+        .list-declaration::-webkit-scrollbar {
+          width: 8px;
+        }
+         
+        .list-declaration::-webkit-scrollbar-track {
+          box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+         
+        .list-declaration::-webkit-scrollbar-thumb {
+          background-color: #38bdf8;
+          border-radius:40px;
+        }
+
+        .list-declaration{
+            margin: 0;
+            width: 100vw;
+            height:100vh;
+            position:fixed;
+/*          background-color: black ;*/
+/*          padding: 1%; */
+            padding-top: 5vh;
+            padding-bottom: 200px;
+            z-index: 0;
+            display:flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-content:start;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+        .declaration{
+            border-radius:20;
+            margin:0px;
+            margin-top: 10px;
+            animation: fadeInDownBig; 
+            animation-duration: 1.5s; 
+            padding: 3px;
+            width: 100%%;
+            display:flex;
+            flex-direction: column;
+            
+        }
+        .dec-image{
+            width: 180px;
+            margin:5px;
+        }
+        .search-bar{
+            position: sticky;
+            padding: 10px;
+            /* margin: 10px; */
+            top:0px;
+            left:15%;
+            /*display:none;*/
+            align-content: center;
+            justify-content:  center;
+            /* width: 70%; */
+            z-index:5;
+            animation:bounceIn;
+            animation-duration: 1s; 
+            overflow: hidden;
+
+        }
+        .navbar{
+            border-radius: 40px;
+            width: 100%;
+            margin: 0%;
+
+        }
+
+    </style>
+</head>
+
+<body data-theme="synthwave">
+    <div class="search-bar">
+        <div class="navbar bg-base-100 shadow-xl">
+            <div class="flex-1">
+                <!-- <a class="btn btn-ghost normal-case text-xl">Trouvele</a> -->
+                <label for="my-modal" class="btn btn-ghost normal-case text-xl">La Ferme Connectée</label>
+            </div>
+            <div class="flex-none gap-2">
+                <div class="form-control">
+                    <input type="text" placeholder="Chercher..." class="input input-bordered" style="width: 45vw;" oninput="w3.filterHTML('.list-declaration', '.declaration', this.value)" />
+                </div>
+                <div class="">
+                    <label tabindex="0" class="btn btn-ghost btn-circle avatar indicator">
+                        <span class="indicator-item badge indicator-start badge-secondary">99+</span>
+                        <div class="w-10 rounded-full">
+                            
+                            <img src="{{url_for('static',filename='img/default_pp.webp')}}" />
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list-declaration">
+        {% for val in declarations %}
+        <div class="declaration card card-side bg-base-100 shadow-xl indicator">
+            <span class="indicator-item badge badge-secondary">+{{declarations[val].quantite}}</span>
+            <figure><img class="dec-image mask mask-squircle img-article" src="{{url_for('static',filename= declarations[val].photo )}}"  alt="Movie" /></figure>
+            <div class="card-body">
+                <h2 class="card-title">Titre: {{val}}</h2>
+                <p>Description du produit ...</p>
+                <p>De: {{declarations[val].auteur}}</p>
+                <p>Exp: {{declarations[val].date}}</p>
+                <!-- <p>{{declarations[val].description}}</p> -->
+                <div class="card-actions justify-end">
+                    <div class="flex items-center">
+                        <button class="btn btn-primary btn-sm mr-2" onclick="decrementQuantity('{{val}}')">-</button>
+                        <span id="{{val}}-quantity">{{declarations[val].quantite}}</span>
+                        <button class="btn btn-primary btn-sm ml-2" onclick="incrementQuantity('{{val}}')">+</button>
+                    </div>
+                    <a href="{{url_for('details')}}"><button class="btn btn-primary">Details</button></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+              <!-- Importation du script -->
+              <script src="../static/js/incrementation.js"></script>
+    </div>
+    <div class="" style="position: fixed; bottom:20px; z-index:10; border-radius:30%; padding-left:5%;padding-right:5%; width:100%">
+        <center>
+            {% include 'bottom_nav.html' %}
+        </center>
+    </div>
+    <input type="checkbox" id="my-modal" class="modal-toggle" />
+    <div class="modal">
+        <div class="modal-box">
+            <h3 class="font-bold text-lg">Ferme Connectée 2.0</h3>
+            <p class="py-4">Faites des achats à la ferme de l'INP-HB sans vous déplasser de chez vous !</p>
+            <div class="modal-action">
+                <label for="my-modal" class="btn">Quitter</label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
