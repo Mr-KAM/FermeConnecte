@@ -7,6 +7,7 @@
 	"titre": "Lapin entier",
 	"unite": "Tête"
 },
+
 {
 	"key": "lapin_entier1",
 	"categorie": "Viande,Animaux",
@@ -15,4 +16,12 @@
 	"quantite": 10,
 	"titre": "Lapin entier",
 	"unite": "Tête"
+}
+
+
+{ "key":"cle_user",
+	"produit":{
+		"x":quantite,
+		"y":qunatite
+	}
 }

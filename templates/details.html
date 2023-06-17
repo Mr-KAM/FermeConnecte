@@ -67,7 +67,7 @@
     </style>
 </head>
 
-<body data-theme="synthwave">
+{% include 'theme.html' %}
     <div class="product-details">
         <div class="product-card">
             <img class="product-image" src="{{url_for('static',filename= declarations[val].photo }}" alt="Product Image">

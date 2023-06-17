@@ -106,7 +106,7 @@ def get_all(db):
     try:
         data=db.fetch().items
         return data
-    else: return None
+    except: return None
 
 def get_data(db, key):
     data = db.get(key)
@@ -120,7 +120,7 @@ def add_data(db,data):
     try:
         db.put(data)
         return True
-    else: return False
+    except: return False
 
 def data_exist(db, key):
     data = db.get(key)

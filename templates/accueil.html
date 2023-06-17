@@ -89,16 +89,18 @@
     </style>
 </head>
 
-<body data-theme="synthwave">
+{% include 'theme.html' %}
     <div class="search-bar">
         <div class="navbar bg-base-100 shadow-xl">
             <div class="flex-1">
                 <!-- <a class="btn btn-ghost normal-case text-xl">Trouvele</a> -->
-                <label for="my-modal" class="btn btn-ghost normal-case text-xl">La Ferme Connectée</label>
+                <label for="my-modal" class="btn btn-ghost normal-case text-xl">    
+                    Ferme connectées
+                </label>
             </div>
             <div class="flex-none gap-2">
                 <div class="form-control">
-                    <input type="text" placeholder="Chercher..." class="input input-bordered" style="width: 45vw;" oninput="w3.filterHTML('.list-declaration', '.declaration', this.value)" />
+                    <input type="text" placeholder="Filtrer..." class="input input-bordered" style="width: 45vw;" oninput="w3.filterHTML('.list-declaration', '.declaration', this.value)" />
                 </div>
                 <div class="">
                     <label tabindex="0" class="btn btn-ghost btn-circle avatar indicator">
