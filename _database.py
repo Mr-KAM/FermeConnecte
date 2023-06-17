@@ -150,25 +150,31 @@ class utilisateur:
         }
 
 
-def add_declarations(db, declaration):
-    db.put(
-        {
-            "auteur": declaration.auteur,
-            "date": declaration.date,
-            "type": declaration.type,
-            "lieu": declaration.lieu,
-            "description": declaration.description,
-            "photo": declaration.photo,
-            "horodator": datetime.datetime.now().strftime("%d-%m-%y %H:%M:%S"),
-        }
-    )
 
 
-class db_declaration:
+class db_produit:
     def __init__(self):
-        self.auteur = ""
-        self.date = ""
-        self.type = ""
-        self.lieu = ""
-        self.description = ""
-        self.photo = ""
+        pass
+    def data(self):
+        return {
+            "key":self.key,
+        }
+
+class db_panier:
+    def __init__(self):
+        pass
+    def data(self):
+        return {
+            "key":self.key,
+        }
+        
+class db_commande:
+    def __init__(self):
+        pass
+    def data(self):
+        return {
+            "key":self.key,
+        }
+
+
+
