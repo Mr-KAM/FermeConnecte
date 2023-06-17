@@ -15,6 +15,7 @@ from flask import (
     redirect,
     url_for,
     jsonify,
+    session,
 )  # pip install flask
 
 from mailer import Mailer  # pip install quick-mailer
@@ -296,6 +297,20 @@ def accueil():
 def declaration():
     declar = declarations()
     return render_template("declaration.html", declarations=declar)
+
+
+# Afficher le panier
+
+@app.route('/panier/')
+@login_required
+def panier():
+    return render_template('panier.html')
+
+
+@app.route("/details/")
+@login_required
+def details():
+    return render_template('details.html')
 
 
 @app.route("/settings")
