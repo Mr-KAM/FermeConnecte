@@ -93,21 +93,20 @@
     <div class="search-bar">
         <div class="navbar bg-base-100 shadow-xl">
             <div class="flex-1">
-                <!-- <a class="btn btn-ghost normal-case text-xl">Trouvele</a> -->
-                <label for="my-modal" class="btn btn-ghost normal-case text-xl">    
-                    Ferme connectées
+                <label for="my-modal" class="btn btn-ghost normal-case">    
+                    Ferme connectée
                 </label>
             </div>
             <div class="flex-none gap-2">
                 <div class="form-control">
-                    <input type="text" placeholder="Filtrer..." class="input input-bordered" style="width: 45vw;" oninput="w3.filterHTML('.list-declaration', '.declaration', this.value)" />
+                    <input type="text" placeholder="Filtrer..." class="input input-bordered" style="width: 35vw;" oninput="w3.filterHTML('.list-declaration', '.declaration', this.value)" />
                 </div>
                 <div class="">
                     <label tabindex="0" class="btn btn-ghost btn-circle avatar indicator">
                         <span class="indicator-item badge indicator-start badge-secondary">99+</span>
                         <div class="w-10 rounded-full">
                             
-                            <img src="{{url_for('static',filename='img/default_pp.webp')}}" />
+                            <img src="{{pp_src}}" />
                         </div>
                     </label>
                 </div>
@@ -115,23 +114,24 @@
         </div>
     </div>
     <div class="list-declaration">
-        {% for val in declarations %}
+        {% for val in produits %}
         <div class="declaration card card-side bg-base-100 shadow-xl indicator">
-            <span class="indicator-item badge badge-secondary">+{{declarations[val].quantite}}</span>
-            <figure><img class="dec-image mask mask-squircle img-article" src="{{url_for('static',filename= declarations[val].photo )}}"  alt="Movie" /></figure>
+            <span class="indicator-item badge badge-secondary">+{{val.quantite}}</span>
+            <figure><img class="dec-image mask mask-squircle img-article" src="{{ format_image( val.key )}}"  alt="produit" /></figure>
             <div class="card-body">
-                <h2 class="card-title">Titre: {{val}}</h2>
-                <p>Description du produit ...</p>
-                <p>De: {{declarations[val].auteur}}</p>
-                <p>Exp: {{declarations[val].date}}</p>
-                <!-- <p>{{declarations[val].description}}</p> -->
-                <div class="card-actions justify-end">
-                    <div class="flex items-center">
-                        <button class="btn btn-primary btn-sm mr-2" onclick="decrementQuantity('{{val}}')">-</button>
-                        <span id="{{val}}-quantity">{{declarations[val].quantite}}</span>
-                        <button class="btn btn-primary btn-sm ml-2" onclick="incrementQuantity('{{val}}')">+</button>
-                    </div>
-                    <a href="{{url_for('details')}}"><button class="btn btn-primary">Details</button></a>
+                <h2 class="card-title">Titre: {{val.titre}}</h2>
+                <p>Description :</p>
+                <p>{{extract_part(val.description,25)}}...</p>
+                <p>Prix : {{val.prix}}</p>
+                <p>Stock: {{val.quantite}}</p>
+                <div class="card-actions justify-center">
+                    {# commentaire
+                        <div class="flex items-center">
+                            <button class="btn btn-primary btn-sm mr-2" onclick="decrementQuantity('{{val}}')">-</button>
+                            <button class="btn btn-primary btn-sm ml-2" onclick="incrementQuantity('{{val}}')">+</button>
+                        </div> 
+                    #}
+                    <a href="{{url_for('details',key=val.key)}}"><button class="btn btn-primary">Details</button></a>
                 </div>
             </div>
         </div>

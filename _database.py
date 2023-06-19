@@ -53,9 +53,9 @@ def add_user(db, user):
         return False
 
 
-def save_file(drive_name, file_name, file_path):
+def save_file(drive_name, file_name, file_data):
     try:
-        drive_name.put(file_name, file_path)
+        drive_name.put(file_name, data=file_data)
         print("-------Image user sauvegardé")
         return True
     except:
@@ -135,6 +135,10 @@ def add_file(drive_name, file_name, path):
         drive_name.put(file_name, path="static/img/profile-default.png")
         print("++++ erreur sauvegarde image")
         return False
+
+def get_file(drive_name, file):
+    file = drive_name.get(file_name)
+    return file.read() if file else False
 # 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
 # [3] [Creation des objets pour la base de données ]
 # 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜

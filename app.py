@@ -55,14 +55,15 @@ pb = Pushbullet(push_key)
 # ================ {Base de données} ===============
 
 users = deta.Base("users")
-declaration = deta.Base("declaration")
-type_objet = deta.Base("type_objet")
+commandes = deta.Base("commandes")
+paniers = deta.Base("paniers")
+produits=deta.Base("produits")
+notifications = deta.Base("notifications")
+
 
 # ================ {drive} ===============
-users_pp = deta.Drive("users_pp")
-identite = deta.Drive("identite")
-img_declaration = deta.Drive("img_declaration")
-
+users_pp = deta.Drive("pp")
+product_img=deta.Drive("produit")
 # ================ {Variables} ==================
 
 
@@ -112,6 +113,24 @@ class dict_to_user(UserMixin):
     def get_id(self):
         return self.key
 
+@app.context_processor
+def utility_processor():
+    def extract_part(valeur,len):
+        print(valeur)
+        return valeur[0:len]
+    return dict(extract_part=extract_part)
+
+@app.context_processor
+def utility_processor():
+    def format_image(key):
+        try:
+            file_name=[fichier for fichier in product_img.list()["name"] if fichier.split(".")[0]==key][0]
+            file_data=get_file(product_img,file_name)
+            file_extension=file_name.split(".")[-1]
+            return f"data:image/{file_extension};base64,{file_data}"
+        except:
+            return "static/img/logo.png"
+    return dict(format_image=format_image)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -170,6 +189,7 @@ def signup():
         ):
             if request.files["pp"]:
                 file_data = request.files.get("pp")
+                print(file_data)
                 file_ext = file_data.filename.split(".")[-1]
                 user.pp = str(user.tel) + "." + file_ext
                 save_file(users_pp, user.pp, file_data)
@@ -261,7 +281,7 @@ def login():
         if input_key == "":
             return render_template("login.html", message="login-error")
         else:
-            print(input_key)
+            print(f"Tentative de connexion de : {input_key}")
             input_password = request.form["password"]
             user = get_user(users, input_key)
         if user and pass_correct(input_password, user["password"]) and user["validate"]:
@@ -289,7 +309,24 @@ def login():
 @login_required
 def accueil():
     declar = declarations()
-    return render_template("accueil.html", declarations=declar)
+    list_produits=get_all(produits)
+    try:
+        pp_name=current_user.pp
+        pp_data=users_pp.get(pp_name).read()
+        pp_extension=pp_name.split('.')[-1]
+        image_source="static/img/pp/"+pp_name
+        # print(image_source)
+        with open(image_source,"wb") as a:
+            a.write(pp_data)
+        # pp_file=open(image_source,"w")
+        pp_src=image_source
+    except:
+        pp_src="static/img/profile-default.png"
+    # print(pp_src)
+
+    print("Photo de profile:", current_user.pp)
+    # print(list_produits)
+    return render_template("accueil.html", produits=list_produits, pp_src=pp_src)
 
 
 @app.route("/declaration/")
@@ -307,10 +344,14 @@ def panier():
     return render_template('panier.html')
 
 
-@app.route("/details/")
+@app.route("/details/<key>",methods=["POST","GET"])
 @login_required
-def details():
-    return render_template('details.html')
+def details(key):
+    produit=get_data(produits,key)
+    print("Detail produit: ")
+    print("==================")
+    print(produit)
+    return render_template('details.html',produit=produit)
 
 
 @app.route("/settings")

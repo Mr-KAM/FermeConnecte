@@ -36,10 +36,22 @@
     <div class="declarer">
         <form method="POST" action="" class="shadow-xl" style="padding:10%; border-radius:30px" enctype="multipart/form-data">
         <center>
-
+            <div class="avatar-upload">
+                <label class="label">
+                    <span class="label-text">Photo de profile</span>
+                </label>
+                <div class="avatar-edit ">
+                    <input type='file' name="img" id="imageUpload" accept=".png, .jpg, .jpeg" />
+                    <label for="imageUpload" class="mask mask-squircle shadow-xl"></label>
+                </div>
+                <div class="avatar-preview mask mask-squircle shadow-xl">
+                    <div id="imagePreview" class="mask mask-squircle" style="background-image: url( {{url_for('static',filename='img/default_pp.webp')}} );">
+                    </div>
+                </div>
+            </div>
             <div class="form-control w-full max-w-xs w-96">
                 <label class="label">
-                    <span class="label-text">Type de déclaration</span>
+                    <span class="label-text">Nom et prenoms</span>
                 </label>
                 <select class="select select-bordered" name="type">
                     <option value="perte" selected="selected">J'ai perdu</option>
@@ -50,7 +62,7 @@
                 <label class="label">
                     <span class="label-text">Nature</span>
                 </label>
-                <select class="select select-bordered" name="nature">
+                <select class="select select-bordered" name="nature" disabled>
                     <option value="piece" selected="selected">Document(s) ou pièce(s)</option>
                     <option value="portefeuille">Portefeuille</option>
                     <option value="sac">Sac ou valise</option>
@@ -64,7 +76,7 @@
                 <label class="label">
                     <span class="label-text">Le</span>
                 </label>
-                <input name="date" type="date" placeholder="Date de perte ou trouvaille de(s) pièce(s)" class="input input-bordered w-full max-w-xs" />
+                <input name="date" type="date" placeholder="Date de perte ou trouvaille de(s) pièce(s)" class="input input-bordered w-full max-w-xs" disabled/>
             </div>
             <div class="form-control w-full max-w-xs w-96">
                 <label class="label">
@@ -78,19 +90,7 @@
                 </label>
                 <input name="description" type="text" placeholder="Ex: Pièce CNI et argent perdus" class="input input-bordered w-full max-w-xs" />
             </div>
-            <div class="avatar-upload">
-                <label class="label">
-                    <span class="label-text">Ajouter une photo</span>
-                </label>
-                <div class="avatar-edit ">
-                    <input type='file' name="img" id="imageUpload" accept=".png, .jpg, .jpeg" />
-                    <label for="imageUpload" class="mask mask-squircle shadow-xl"></label>
-                </div>
-                <div class="avatar-preview mask mask-squircle shadow-xl">
-                    <div id="imagePreview" class="mask mask-squircle" style="background-image: url( {{url_for('static',filename='img/default_pp.webp')}} );">
-                    </div>
-                </div>
-            </div>
+
             <br>
             <div class="form-control w-full max-w-xs w-96">
                 <button class="btn btn-primary">
