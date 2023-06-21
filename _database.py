@@ -136,9 +136,9 @@ def add_file(drive_name, file_name, path):
         print("++++ erreur sauvegarde image")
         return False
 
-def get_file(drive_name, file):
-    file = drive_name.get(file_name)
-    return file.read() if file else False
+def get_file(drive_name, file_name):
+    file_detail = drive_name.get(file_name)
+    return file_detail.read() if file_detail else False
 # 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
 # [3] [Creation des objets pour la base de données ]
 # 〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜

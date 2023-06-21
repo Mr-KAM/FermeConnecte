@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modification du profil</title>
+    {% include 'header.html' %}
+    <style>
+        /* Vos styles CSS ici */
+    </style>
+</head>
+
+{% include 'theme.html' %}
+
+    <div class="search-bar">
+        <div class="navbar bg-base-100 shadow-xl">
+            <div class="flex-1">
+                <label for="my-modal" class="btn btn-ghost normal-case text-xl">La Ferme Connectée</label>
+            </div>
+            <div class="flex-none gap-2">
+                <div class="form-control">
+                    <input type="text" placeholder="Chercher..." class="input input-bordered" style="width: 45vw;" oninput="w3.filterHTML('.list-declaration', '.declaration', this.value)" />
+                </div>
+                <div class="">
+                    <label tabindex="0" class="btn btn-ghost btn-circle avatar indicator">
+                        <span class="indicator-item badge indicator-start badge-secondary">99+</span>
+                        <div class="w-10 rounded-full">
+                            <img src="{{url_for('static',filename='img/default_pp.webp')}}" />
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="list-declaration">
+        {% for val in declarations %}
+        <div class="declaration card card-side bg-base-100 shadow-xl indicator">
+            <span class="indicator-item badge badge-secondary">+{{declarations[val].quantite}}</span> 
+            <figure><img class="dec-image mask mask-squircle img-article" src="{{url_for('static',filename= declarations[val].photo )}}"  alt="Movie" /></figure>
+            <div class="card-body ">
+                <h2 class="card-title">Titre: {{val}}</h2>
+                <p>Description du produit ...</p>
+                <p> De: {{declarations[val].auteur}}</p>
+                <p> Exp: {{declarations[val].date}}</p>
+                <div class="card-actions justify-end">
+                    <a href="{{url_for('details')}}"><button class="btn btn-primary">Details</button></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="" style="position: fixed; bottom:20px; z-index:10; border-radius:30%; padding-left:5%;padding-right:5%; width:100%">
+        <center>
+            {% include 'bottom_nav.html' %}
+        </center>
+    </div>
+    <input type="checkbox" id="my-modal" class="modal-toggle" />
+    <div class="modal">
+        <div class="modal-box">
+            <h3 class="font-bold text-lg">Ferme Connectée 2.0</h3>
+            <p class="py-4">Faites des achats à la ferme de l'INP-HB sans vous déplacer de chez vous !</p>
+            <div class="modal-action">
+                <label for="my-modal" class="btn">Quitter</label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -63,7 +63,7 @@ notifications = deta.Base("notifications")
 
 # ================ {drive} ===============
 users_pp = deta.Drive("pp")
-product_img=deta.Drive("produit")
+produit_img=deta.Drive("produit")
 # ================ {Variables} ==================
 
 
@@ -116,7 +116,7 @@ class dict_to_user(UserMixin):
 @app.context_processor
 def utility_processor():
     def extract_part(valeur,len):
-        print(valeur)
+        # print(valeur)
         return valeur[0:len]
     return dict(extract_part=extract_part)
 
@@ -124,8 +124,8 @@ def utility_processor():
 def utility_processor():
     def format_image(key):
         try:
-            file_name=[fichier for fichier in product_img.list()["name"] if fichier.split(".")[0]==key][0]
-            file_data=get_file(product_img,file_name)
+            file_name=[fichier for fichier in produit_img.list()["name"] if fichier.split(".")[0]==key][0]
+            file_data=get_file(produit_img,file_name)
             file_extension=file_name.split(".")[-1]
             return f"data:image/{file_extension};base64,{file_data}"
         except:
@@ -323,8 +323,12 @@ def accueil():
     except:
         pp_src="static/img/profile-default.png"
     # print(pp_src)
-
-    print("Photo de profile:", current_user.pp)
+    list_keys=[key["key"] for key in list_produits]
+    print("Liste des clés: ",list_keys)
+    # for key in list_keys:
+        # file_name=[fichier for fichier in product_img.list() if fichier.split(".")[0]==key][0]
+        # print(file_name)
+    print("Liste des images de produits:", produit_img.list())
     # print(list_produits)
     return render_template("accueil.html", produits=list_produits, pp_src=pp_src)
 
